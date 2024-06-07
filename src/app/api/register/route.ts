@@ -1,5 +1,5 @@
 import prisma from "@/app/libs/prismadb";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 			return new NextResponse("Missing info", { status: 400 });
 		}
 
-		const hashedPassword = await bcrypt.hash(password, 12);
+		const hashedPassword = await bcryptjs.hash(password, 12);
 		const user = await prisma.user.create({
 			data: {
 				email,
