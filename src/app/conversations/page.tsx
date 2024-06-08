@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from "clsx";
 import { EmptyState } from "../components";
 import { useConversation } from "../hooks";
