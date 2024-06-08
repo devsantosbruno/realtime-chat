@@ -30,7 +30,7 @@ export function Input({
 		<div>
 			<label
 				htmlFor={id}
-				className="block text-sm font-medium leading-6 text-gray-900"
+				className="block text-sm font-light leading-6 text-slate-50"
 			>
 				{label}
 			</label>
@@ -43,7 +43,7 @@ export function Input({
 					disabled={disabled}
 					{...register(id, { required })}
 					className={clsx(
-						"form-input block w-full rounded-md py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 border border-gray-300 focus:border-sky-600 transition duration-500",
+						"form-input bg-transparent block w-full rounded-md py-1.5 text-slate-50 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 border border-gray-800 focus:border-lime-400 focus:ring-0 focus:outline-none transition duration-500",
 						errors[id] && "focus:border-rose-500",
 						disabled && "opacity-50 cursor-default",
 					)}
