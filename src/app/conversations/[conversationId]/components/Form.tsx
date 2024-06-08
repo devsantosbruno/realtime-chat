@@ -10,12 +10,7 @@ import { MessageInput } from "./MessageInput";
 
 export function Form() {
 	const { conversationId } = useConversation();
-	const {
-		register,
-		handleSubmit,
-		setValue,
-		formState: { errors },
-	} = useForm<FieldValues>({
+	const { register, handleSubmit, setValue } = useForm<FieldValues>({
 		defaultValues: {
 			message: "",
 		},
@@ -53,7 +48,6 @@ export function Form() {
 				<MessageInput
 					id="message"
 					register={register}
-					errors={errors}
 					placeholder="Write a message"
 					required
 				/>
