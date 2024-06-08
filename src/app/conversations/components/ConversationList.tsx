@@ -1,8 +1,8 @@
 "use client";
 
-import { useConversation } from "@/app/hooks";
 import { pusherClient } from "@/app/libs/pusher";
 import type { FullConversationType } from "@/app/types";
+import { useConversation } from "@hooks";
 import type { User } from "@prisma/client";
 import clsx from "clsx";
 import { find } from "lodash";

@@ -1,7 +1,7 @@
 "use client";
 
-import { useActiveList, useOtherUser } from "@/app/hooks";
 import { Avatar, AvatarGroup } from "@components";
+import { useActiveList, useOtherUser } from "@hooks";
 import type { Conversation, User } from "@prisma/client";
 import Link from "next/link";
 import { useMemo, useState } from "react";

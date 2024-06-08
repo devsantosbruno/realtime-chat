@@ -1,8 +1,8 @@
 "use client";
 
-import { useOtherUser } from "@/app/hooks";
 import type { FullConversationType } from "@/app/types";
 import { Avatar, AvatarGroup } from "@components";
+import { useOtherUser } from "@hooks";
 import clsx from "clsx";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";

@@ -1,7 +1,6 @@
 "use client";
 
-import { useConversation } from "@/app/hooks/useConversation";
-import { useRoutes } from "@/app/hooks/useRoutes";
+import { useConversation, useRoutes } from "@hooks";
 import { MobileItem } from "./MobileItem";
 
 export function MobileFooter() {

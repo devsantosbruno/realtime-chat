@@ -1,8 +1,8 @@
 "use client";
 
-import { useActiveList, useOtherUser } from "@/app/hooks";
 import { Avatar, AvatarGroup } from "@components";
 import { Dialog, Transition } from "@headlessui/react";
+import { useActiveList, useOtherUser } from "@hooks";
 import type { Conversation, User } from "@prisma/client";
 import { format } from "date-fns";
 import { Fragment, useMemo, useState } from "react";

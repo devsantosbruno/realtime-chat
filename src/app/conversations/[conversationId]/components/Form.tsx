@@ -1,6 +1,6 @@
 "use client";
 
-import { useConversation } from "@/app/hooks";
+import { useConversation } from "@hooks";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";

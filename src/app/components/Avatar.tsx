@@ -1,8 +1,8 @@
 "use client";
 
+import { useActiveList } from "@hooks";
 import type { User } from "@prisma/client";
 import Image from "next/image";
-import { useActiveList } from "../hooks";
 
 type AvatarProps = {
 	user?: User;
