@@ -1,5 +1,4 @@
 import prisma from "@/app/libs/prismadb";
-
 import { getSession } from "./getSession";
 
 export async function getCurrentUser() {
@@ -25,5 +24,3 @@ export async function getCurrentUser() {
 		return null;
 	}
 }
-
-export default getCurrentUser;
