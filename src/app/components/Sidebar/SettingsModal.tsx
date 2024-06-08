@@ -2,6 +2,7 @@
 
 import { Button, Input, Modal } from "@components";
 import type { User } from "@prisma/client";
+import { CLOUDINARY_UPLOAD_PRESET } from "@utils";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
 import Image from "next/image";
@@ -100,7 +101,7 @@ export function SettingsModal({
 									<CldUploadButton
 										options={{ maxFiles: 1 }}
 										onUpload={handleUpload}
-										uploadPreset="ztcdw7i2"
+										uploadPreset={CLOUDINARY_UPLOAD_PRESET}
 									>
 										<Button disabled={isLoading} secondary>
 											Change

@@ -1,6 +1,7 @@
 "use client";
 
 import { useConversation } from "@hooks";
+import { CLOUDINARY_UPLOAD_PRESET } from "@utils";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
@@ -40,7 +41,7 @@ export function Form() {
 			<CldUploadButton
 				options={{ maxFiles: 1 }}
 				onUpload={handleUpload}
-				uploadPreset="ztcdw7i2"
+				uploadPreset={CLOUDINARY_UPLOAD_PRESET}
 			>
 				<HiPhoto size={30} className="text-sky-500" />
 			</CldUploadButton>

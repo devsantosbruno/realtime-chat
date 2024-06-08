@@ -25,7 +25,9 @@
 			"@actions": ["./src/app/actions/index.ts"],
 			"@libs": ["./src/app/libs/index.ts"],
 			"@types": ["./src/app/types/index.ts"],
-			"@config": ["./src/app/config/index.ts"]
+			"@config": ["./src/app/config/index.ts"],
+			"@utils": ["./src/app/utils/index.ts"]
+			// "@constants": ["./src/app/utils/constants.ts"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
