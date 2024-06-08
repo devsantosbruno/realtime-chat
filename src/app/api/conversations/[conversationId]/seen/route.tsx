@@ -74,7 +74,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
 
 		return NextResponse.json(updatedMessage);
 	} catch (error) {
-		console.log("ERROR_MESSAGE_SEEN ==>", error);
+		console.error("ERROR_MESSAGE_SEEN ==>", error);
 		return new NextResponse("Internal Error", { status: 500 });
 	}
 }
