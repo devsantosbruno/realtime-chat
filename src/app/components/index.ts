@@ -1,3 +1,4 @@
+export { ActiveStatus } from "./ActiveStatus";
 export { Avatar } from "./Avatar";
 export { AvatarGroup } from "./AvatarGroup";
 export { Button } from "./Button";

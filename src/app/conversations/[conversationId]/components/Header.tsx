@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar, AvatarGroup } from "@/app/components";
-import { useOtherUser } from "@/app/hooks";
+import { useActiveList, useOtherUser } from "@/app/hooks";
 import type { Conversation, User } from "@prisma/client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -17,13 +17,16 @@ type HeaderProps = {
 export function Header({ conversation }: HeaderProps) {
 	const otherUser = useOtherUser(conversation);
 	const [drawerOpen, setDrawerOpen] = useState(false);
+	const { members } = useActiveList();
+	const isActive = members.indexOf(otherUser?.email!) !== -1;
+
 	const statusText = useMemo(() => {
 		if (conversation.isGroup) {
 			return `${conversation.users.length} members`;
 		}
 
-		return "Active";
-	}, [conversation]);
+		return isActive ? "Active" : "Offline";
+	}, [conversation, isActive]);
 
 	return (
 		<>
