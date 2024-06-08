@@ -1,6 +1,5 @@
-import prisma from "@/app/libs/prismadb";
-import { pusherServer } from "@/app/libs/pusher";
 import { getCurrentUser } from "@actions";
+import prisma, { pusherServer } from "@libs";
 import { NextResponse } from "next/server";
 
 type IParams = {

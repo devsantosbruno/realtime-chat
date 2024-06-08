@@ -1,8 +1,8 @@
 "use client";
 
-import { pusherClient } from "@/app/libs/pusher";
 import type { FullMessageType } from "@/app/types";
 import { useConversation } from "@hooks";
+import { pusherClient } from "@libs";
 import axios from "axios";
 import { find } from "lodash";
 import { useEffect, useRef, useState } from "react";
