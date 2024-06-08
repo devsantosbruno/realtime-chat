@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, LoadingModal } from "@/app/components";
+import { Avatar, LoadingModal } from "@components";
 import type { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";

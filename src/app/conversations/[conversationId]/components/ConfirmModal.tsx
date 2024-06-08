@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Modal } from "@/app/components";
 import { useConversation } from "@/app/hooks";
+import { Button, Modal } from "@components";
 import { Dialog } from "@headlessui/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
