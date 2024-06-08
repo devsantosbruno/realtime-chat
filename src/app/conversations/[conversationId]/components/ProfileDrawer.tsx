@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar } from "@/app/components";
+import { Avatar, AvatarGroup } from "@/app/components";
 import { useOtherUser } from "@/app/hooks";
 import { Dialog, Transition } from "@headlessui/react";
 import type { Conversation, User } from "@prisma/client";

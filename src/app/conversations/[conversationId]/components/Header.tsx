@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar } from "@/app/components";
+import { Avatar, AvatarGroup } from "@/app/components";
 import { useOtherUser } from "@/app/hooks";
 import type { Conversation, User } from "@prisma/client";
 import Link from "next/link";
@@ -42,7 +42,11 @@ export function Header({ conversation }: HeaderProps) {
 						<HiChevronLeft size={32} />
 					</Link>
 
-					<Avatar user={otherUser} />
+					{conversation.isGroup ? (
+						<AvatarGroup users={conversation.users} />
+					) : (
+						<Avatar user={otherUser} />
+					)}
 
 					<div className="flex flex-col">
 						<div>{conversation.name ?? otherUser.name}</div>
