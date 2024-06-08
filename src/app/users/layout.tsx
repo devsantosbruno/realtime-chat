@@ -1,6 +1,6 @@
-import { getUsers } from "@/app/actions";
-import { Sidebar } from "@/app/components/Sidebar";
-import { UserList } from "./components/UserList";
+import { getUsers } from "@actions";
+import { Sidebar } from "@components";
+import { UserList } from "./components";
 
 export default async function UsersLayout({
 	children,

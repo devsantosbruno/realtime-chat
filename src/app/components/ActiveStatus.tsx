@@ -1,6 +1,6 @@
 "use client";
 
-import { useActiveChannel } from "../hooks/useActiveChannel";
+import { useActiveChannel } from "@hooks";
 
 export const ActiveStatus = () => {
 	useActiveChannel();

@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, Input, Modal } from "@/app/components";
-import { Select } from "@/app/components/Inputs";
+import { Button, Input, Modal, Select } from "@components";
 import type { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";

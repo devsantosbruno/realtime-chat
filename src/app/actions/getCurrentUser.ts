@@ -1,5 +1,5 @@
-import prisma from "@/app/libs/prismadb";
-import { getSession } from "./getSession";
+import { getSession } from "@actions";
+import prisma from "@libs";
 
 export async function getCurrentUser() {
 	try {

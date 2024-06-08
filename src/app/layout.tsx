@@ -1,7 +1,7 @@
-import { AuthContext, ToasterContext } from "@/app/context";
+import { ActiveStatus } from "@components";
+import { AuthContext, ToasterContext } from "@context";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ActiveStatus } from "./components";
 
 import "./globals.css";
 

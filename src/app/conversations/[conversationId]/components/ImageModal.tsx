@@ -1,6 +1,6 @@
 "use client";
 
-import { Modal } from "@/app/components";
+import { Modal } from "@components";
 import Image from "next/image";
 
 type ImageModalProps = {

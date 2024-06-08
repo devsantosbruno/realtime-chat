@@ -1,6 +1,5 @@
-import prisma from "@/app/libs/prismadb";
-
-import { getCurrentUser } from "./getCurrentUser";
+import { getCurrentUser } from "@actions";
+import prisma from "@libs";
 
 export async function getConversations() {
 	const currentUser = await getCurrentUser();
