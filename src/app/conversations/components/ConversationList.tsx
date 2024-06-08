@@ -1,9 +1,9 @@
 "use client";
 
-import type { FullConversationType } from "@/app/types";
 import { useConversation } from "@hooks";
 import { pusherClient } from "@libs";
 import type { User } from "@prisma/client";
+import type { FullConversationType } from "@types";
 import clsx from "clsx";
 import { find } from "lodash";
 import { useSession } from "next-auth/react";
