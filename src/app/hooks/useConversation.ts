@@ -9,10 +9,16 @@ export function useConversation() {
 			return "";
 		}
 
-		return params.conversationId;
+		return params.conversationId as string;
 	}, [params?.conversationId]);
 
 	const isOpen = useMemo(() => !!conversationId, [conversationId]);
 
-	return useMemo(() => ({ isOpen, conversationId }), [isOpen, conversationId]);
+	return useMemo(
+		() => ({
+			isOpen,
+			conversationId,
+		}),
+		[isOpen, conversationId],
+	);
 }
