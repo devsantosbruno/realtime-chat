@@ -1,5 +1,5 @@
+import { getSession } from "@actions";
 import prisma from "@libs";
-import { getSession } from "./getSession";
 
 export async function getUsers() {
 	const session = await getSession();
