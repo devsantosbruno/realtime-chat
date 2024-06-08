@@ -1,9 +1,9 @@
 "use client";
 
+import { Avatar } from "@components";
 import { useRoutes } from "@hooks";
 import type { User } from "@prisma/client";
 import { useState } from "react";
-import { Avatar } from "../Avatar";
 import { DesktopItem } from "./DesktopItem";
 import { SettingsModal } from "./SettingsModal";
 
