@@ -1,4 +1,4 @@
-import { getConversations, getUsers } from "@/app/actions";
+import { getConversations, getUsers } from "@actions";
 import { Sidebar } from "@components";
 import { ConversationList } from "./components";
 
