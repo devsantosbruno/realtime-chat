@@ -23,7 +23,7 @@ export function Avatar({ user }: AvatarProps) {
 			</div>
 
 			{isActive && (
-				<span className="absolute top-0 right-0 h-2 w-2 md:h-3 md:w-3 block rounded-full bg-green-500 border-2 border-white" />
+				<span className="absolute top-0 right-0 h-3 w-3 block rounded-full bg-green-500 border-2 border-white" />
 			)}
 		</div>
 	);
