@@ -5,5 +5,6 @@ export { Button } from "./Button";
 export { EmptyState } from "./EmptyState";
 export { Input, Select } from "./Inputs/index";
 export { LoadingModal } from "./LoadingModal";
+export { LogoutModal } from "./LogoutModal";
 export { Modal } from "./Modal";
 export { Sidebar } from "./Sidebar";

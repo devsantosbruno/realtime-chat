@@ -32,13 +32,13 @@ export function Form() {
 	};
 
 	return (
-		<div className="p-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full">
+		<div className="p-4 border-t border-slate-800 flex items-center gap-2 lg:gap-4 w-full">
 			<CldUploadButton
 				options={{ maxFiles: 1 }}
 				onUpload={handleUpload}
 				uploadPreset={CLOUDINARY_UPLOAD_PRESET}
 			>
-				<HiPhoto size={30} className="text-sky-500" />
+				<HiPhoto size={30} className="text-lime-500" />
 			</CldUploadButton>
 
 			<form
@@ -54,7 +54,7 @@ export function Form() {
 
 				<button
 					type="submit"
-					className="rounded-full p-2 bg-sky-500 hover:bg-sky-600 transition duration-500"
+					className="rounded-full p-2 bg-lime-500 hover:bg-lime-600 transition duration-500"
 				>
 					<HiPaperAirplane size={18} className="text-white" />
 				</button>
