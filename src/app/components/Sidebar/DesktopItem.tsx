@@ -7,7 +7,6 @@ type DesktopItemProps = {
 	href: string;
 	icon: IconType;
 	active?: boolean;
-	onClick?: () => void;
 };
 
 export function DesktopItem({
@@ -15,16 +14,9 @@ export function DesktopItem({
 	href,
 	icon: Icon,
 	active = false,
-	onClick = () => null,
 }: DesktopItemProps) {
-	function handleClick() {
-		if (onClick) {
-			return onClick();
-		}
-	}
-
 	return (
-		<li onClick={handleClick}>
+		<li>
 			<Link
 				href={href}
 				className={clsx(
