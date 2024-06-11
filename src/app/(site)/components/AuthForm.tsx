@@ -92,7 +92,7 @@ export function AuthForm() {
 
 	return (
 		<div className="mt-12 sm:mx-auto sm:w-full sm:max-w-md">
-			<div className="bg-[#09090B] shadow shadow-lime-400 px-4 py-8 sm:rounded-lg sm:px-10">
+			<div className="bg-black shadow shadow-lime-400 px-4 py-8 sm:rounded-lg sm:px-10">
 				<form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
 					{variant === "REGISTER" && (
 						<Input
@@ -134,7 +134,7 @@ export function AuthForm() {
 						</div>
 
 						<div className="relative flex justify-center text-sm">
-							<span className="bg-[#09090B] px-2 text-gray-500">
+							<span className="bg-black px-2 text-gray-500">
 								Or continue with
 							</span>
 						</div>

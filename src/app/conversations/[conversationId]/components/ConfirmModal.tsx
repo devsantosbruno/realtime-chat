@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Modal } from "@components";
-import { Dialog } from "@headlessui/react";
+import { DialogTitle } from "@headlessui/react";
 import { useConversation } from "@hooks";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -35,21 +35,21 @@ export function ConfirmModal({ onClose, isOpen = false }: ConfirmModalProps) {
 
 	return (
 		<Modal isOpen={isOpen} onClose={onClose}>
-			<div className="sm:flex sm:items-start">
-				<div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-					<FiAlertTriangle className="h-6 w-6 text-red-600" />
+			<div className="flex flex-col sm:flex-row items-center sm:items-start">
+				<div className="flex items-center justify-center rounded-full p-2 bg-red-100 mx-auto">
+					<FiAlertTriangle size={24} className="text-red-600" />
 				</div>
 
-				<div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-					<Dialog.Title
+				<div className="mt-1 sm:mt-0 text-center sm:ml-4 sm:text-left">
+					<DialogTitle
 						as="h3"
-						className="text-base font-semibold leading-6 text-gray-900 "
+						className="text-base font-semibold leading-6 text-slate-50"
 					>
 						Delete conversation
-					</Dialog.Title>
+					</DialogTitle>
 
-					<div className="mt-2">
-						<p className="text-sm text-gray-500">
+					<div className="mt-3">
+						<p className="text-sm text-slate-50/50">
 							Are you sure you want to delete this conversation? This action
 							cannot be undone.
 						</p>
@@ -57,13 +57,9 @@ export function ConfirmModal({ onClose, isOpen = false }: ConfirmModalProps) {
 				</div>
 			</div>
 
-			<div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-				<Button disabled={isLoading} danger onClick={onDelete}>
+			<div className="mt-6 sm:mt-4 flex justify-end">
+				<Button disabled={isLoading} onClick={onDelete} danger>
 					Delete
-				</Button>
-
-				<Button disabled={isLoading} secondary onClick={onClose}>
-					Cancel
 				</Button>
 			</div>
 		</Modal>

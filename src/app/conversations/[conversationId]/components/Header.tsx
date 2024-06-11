@@ -36,11 +36,11 @@ export function Header({ conversation }: HeaderProps) {
 				onClose={() => setDrawerOpen(false)}
 			/>
 
-			<div className="bg-white w-full flex border-b sm:px-4 py-3 px-4 lg:px-6 justify-between items-center shadow-sm">
-				<div className="flex gap-3 items-center">
+			<div className="bg-black w-full border-b border-slate-800 sm:px-4 py-3 px-4 lg:px-6 flex items-center gap-3 shadow-sm">
+				<div className="flex flex-1 gap-3 items-center overflow-hidden">
 					<Link
 						href="/conversations"
-						className="lg:hidden block text-sky-500 hover:text-sky-600 transition duration-500"
+						className="lg:hidden block text-white transition duration-500"
 					>
 						<HiChevronLeft size={32} />
 					</Link>
@@ -52,18 +52,18 @@ export function Header({ conversation }: HeaderProps) {
 					)}
 
 					<div className="flex flex-col">
-						<div>{conversation.name ?? otherUser.name}</div>
+						<p className="text-md font-medium text-slate-50 truncate">
+							{conversation.name ?? otherUser.name}
+						</p>
 
-						<div className="text-sm font-light text-neutral-500">
-							{statusText}
-						</div>
+						<p className="text-sm font-light text-slate-50/50">{statusText}</p>
 					</div>
 				</div>
 
 				<HiEllipsisHorizontal
 					size={32}
 					onClick={() => setDrawerOpen(true)}
-					className="text-sky-500 cursor-pointer hover:text-sky-600 transition duration-500"
+					className="text-white cursor-pointer"
 				/>
 			</div>
 		</>

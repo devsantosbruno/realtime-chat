@@ -6,6 +6,7 @@ import {
 	Transition,
 	TransitionChild,
 } from "@headlessui/react";
+import clsx from "clsx";
 import { Fragment } from "react";
 import { IoClose } from "react-icons/io5";
 
@@ -13,9 +14,10 @@ interface ModalProps {
 	onClose: () => void;
 	children: React.ReactNode;
 	isOpen?: boolean;
+	className?: string;
 }
 
-export function Modal({ isOpen, onClose, children }: ModalProps) {
+export function Modal({ isOpen, onClose, children, className }: ModalProps) {
 	return (
 		<Transition show={isOpen} as={Fragment}>
 			<Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -28,7 +30,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 					leaveFrom="opacity-100"
 					leaveTo="opacity-0"
 				>
-					<div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+					<div className="fixed inset-0 bg-black/90 transition-opacity" />
 				</TransitionChild>
 
 				<div className="fixed inset-0 z-10 overflow-y-auto">
@@ -42,11 +44,16 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
 							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 						>
-							<DialogPanel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 text-left shadow-xsl transition-all w-full sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-								<div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block z-10">
+							<DialogPanel
+								className={clsx(
+									"relative transform overflow-hidden rounded-lg bg-black border border-slate-800 text-left shadow-xl transition-all w-full sm:w-full ",
+									className ? className : "sm:max-w-lg p-4 sm:my-8 sm:p-6",
+								)}
+							>
+								<div className="absolute right-4 top-4 z-10">
 									<button
 										type="button"
-										className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none border-2 border-transparent focus:border-sky-500 transition duration-500"
+										className="rounded-md text-slate-50 hover:text-lime-400 focus:outline-none transition duration-500"
 										onClick={onClose}
 									>
 										<span className="sr-only">Close</span>

@@ -96,13 +96,13 @@ export function ConversationList({
 
 			<aside
 				className={clsx(
-					"fixed inset-y-0 pb-20 lg:lb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-r border-gray-200",
+					"fixed inset-y-0 pb-20 lg:lb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-r border-gray-800",
 					isOpen ? "hidden" : "block w-full left-0",
 				)}
 			>
 				<div className="px-5">
-					<div className="flex justify-between mb-4 pt-4">
-						<div className="text-2xl font-bold text-neutral-800">Messages</div>
+					<div className="flex justify-between pt-6">
+						<div className="text-2xl font-bold text-slate-50">Messages</div>
 
 						<div
 							onClick={() => setIsModalOpen(true)}
@@ -112,13 +112,15 @@ export function ConversationList({
 						</div>
 					</div>
 
-					{items.map((item) => (
-						<ConversationBox
-							key={item.id}
-							data={item}
-							selected={conversationId === item.id}
-						/>
-					))}
+					<div className="flex flex-col gap-2 mt-6 lg:mt-8">
+						{items.map((item) => (
+							<ConversationBox
+								key={item.id}
+								data={item}
+								selected={conversationId === item.id}
+							/>
+						))}
+					</div>
 				</div>
 			</aside>
 		</>

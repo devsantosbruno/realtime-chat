@@ -19,7 +19,7 @@ export function Select({
 }: SelectProps) {
 	return (
 		<div className="z-[100]">
-			<label className="block text-sm font-medium leading-6 text-gray-900">
+			<label className="block text-sm font-light leading-6 text-slate-50">
 				{label}
 			</label>
 
@@ -32,9 +32,21 @@ export function Select({
 					menuPortalTarget={document.body}
 					isMulti
 					styles={{
-						menuPortal: (base) => ({
-							...base,
+						menuPortal: (baseStyles) => ({
+							...baseStyles,
 							zIndex: 9999,
+						}),
+						control: (baseStyles, state) => ({
+							...baseStyles,
+							background: "#000",
+							boxShadow: "none",
+							border: state.isFocused
+								? "1px solid #a3e635"
+								: "1px solid #1e293b",
+						}),
+						multiValue: (baseStyles) => ({
+							...baseStyles,
+							background: "#a3e635",
 						}),
 					}}
 					classNames={{
