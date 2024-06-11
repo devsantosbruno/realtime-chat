@@ -1,13 +1,8 @@
-import type {
-	FieldErrors,
-	FieldValues,
-	UseFormRegister,
-} from "react-hook-form";
+import type { FieldValues, UseFormRegister } from "react-hook-form";
 
 type MessageInputProps = {
 	id: string;
 	register: UseFormRegister<FieldValues>;
-	errors: FieldErrors;
 	placeholder: string;
 	required?: boolean;
 	type?: string;
@@ -16,7 +11,6 @@ type MessageInputProps = {
 export function MessageInput({
 	id,
 	register,
-	errors,
 	placeholder,
 	type = "text",
 	required = false,
@@ -28,8 +22,8 @@ export function MessageInput({
 				type={type}
 				autoComplete={id}
 				placeholder={placeholder}
-				{...register(id, { required })}
-				className="text-black font-light py-2 px-4 bg-neutral-100 w-full rounded-full focus:outline-none"
+				className="text-white placeholder:text-white placeholder:text-sm font-light py-2 px-4 bg-[#242424] w-full rounded-full border border-transparent focus:border-lime-400 focus:outline-none transition duration-500"
+				{...register(id, { required, pattern: /\S/ })}
 			/>
 		</div>
 	);

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Input } from "@/app/components";
+import { Button, Input } from "@components";
 import axios from "axios";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -91,8 +91,8 @@ export function AuthForm() {
 	};
 
 	return (
-		<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-			<div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+		<div className="mt-12 sm:mx-auto sm:w-full sm:max-w-md">
+			<div className="bg-black shadow shadow-lime-400 px-4 py-8 sm:rounded-lg sm:px-10">
 				<form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
 					{variant === "REGISTER" && (
 						<Input
@@ -105,7 +105,7 @@ export function AuthForm() {
 					)}
 					<Input
 						id="email"
-						label="Email address"
+						label="Email"
 						type="email"
 						register={register}
 						errors={errors}
@@ -134,13 +134,13 @@ export function AuthForm() {
 						</div>
 
 						<div className="relative flex justify-center text-sm">
-							<span className="bg-white px-2 text-gray-500">
+							<span className="bg-black px-2 text-gray-500">
 								Or continue with
 							</span>
 						</div>
 					</div>
 
-					<div className="mt-6 flex gap-2">
+					<div className="mt-6 flex justify-evenly gap-2">
 						<AuthSocialButton
 							Icon={BsGithub}
 							onClick={() => socialAction("github")}
@@ -152,15 +152,19 @@ export function AuthForm() {
 					</div>
 				</div>
 
-				<div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
+				<div className="flex gap-2 justify-center text-sm mt-6 px-2 text-slate-50">
 					<div>
 						{variant === "LOGIN"
 							? "New to Messenger?"
 							: "Already have an account?"}
 					</div>
-					<div onClick={toggleVariant} className="underline cursor-pointer">
+					<button
+						type="button"
+						onClick={toggleVariant}
+						className="underline hover:text-lime-400 transition duration-500"
+					>
 						{variant === "LOGIN" ? "Create an account" : "Login"}
-					</div>
+					</button>
 				</div>
 			</div>
 		</div>

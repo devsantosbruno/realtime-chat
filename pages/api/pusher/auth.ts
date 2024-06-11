@@ -1,5 +1,5 @@
-import { authOptions } from "@/app/config/authOptions";
-import { pusherServer } from "@/app/libs/pusher";
+import { authOptions } from "@config";
+import { pusherServer } from "@libs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 

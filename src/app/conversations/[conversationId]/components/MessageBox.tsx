@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar } from "@/app/components";
-import type { FullMessageType } from "@/app/types";
+import { Avatar } from "@components";
+import type { FullMessageType } from "@types";
 import clsx from "clsx";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
@@ -29,8 +29,8 @@ export function MessageBox({ isLast = false, data }: MessageBoxProps) {
 	const body = clsx("flex flex-col gap-2", isOwn && "items-end");
 	const message = clsx(
 		"text-sm w-fit overflow-hidden",
-		isOwn ? "bg-sky-500 text-white" : "bg-gray-100",
-		data.image ? "rounded-md p-0" : "rounded-full py-2 px-3",
+		isOwn ? "bg-lime-400/60 text-white ml-8" : "bg-slate-100 mr-8",
+		data.image ? "rounded-2xl p-0" : "rounded-2xl py-2 px-3",
 	);
 
 	return (
@@ -41,11 +41,13 @@ export function MessageBox({ isLast = false, data }: MessageBoxProps) {
 
 			<div className={body}>
 				<div className="flex items-center gap-1">
-					<div className="text-sm text-gray-500">{data.sender.name}</div>
+					<p className="text-sm text-slate-50 truncate max-w-[40vw]">
+						{data.sender.name}
+					</p>
 
-					<div className="text-xs text-gray-400">
+					<p className="text-xs text-slate-50/50">
 						{format(new Date(data.createdAt), "p")}
-					</div>
+					</p>
 				</div>
 
 				<div className={message}>
@@ -56,16 +58,18 @@ export function MessageBox({ isLast = false, data }: MessageBoxProps) {
 					/>
 
 					{data.image ? (
-						<Image
-							alt="Image"
-							height={288}
-							width={288}
-							src={data.image}
-							onClick={() => setImageModalOpen(true)}
-							className="object-cover cursor-pointer hover:scale-110 transition translate duration-500"
-						/>
+						<div className="border border-lime-400 overflow-hidden rounded-2xl">
+							<Image
+								alt="Image"
+								src={data.image}
+								onClick={() => setImageModalOpen(true)}
+								className="object-cover cursor-pointer hover:scale-110 transition duration-500"
+								width={288}
+								height={288}
+							/>
+						</div>
 					) : (
-						<div>{data.body}</div>
+						<p>{data.body}</p>
 					)}
 				</div>
 

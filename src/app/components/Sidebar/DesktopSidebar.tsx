@@ -1,9 +1,9 @@
 "use client";
 
-import { useRoutes } from "@/app/hooks/useRoutes";
+import { Avatar } from "@components";
+import { useRoutes } from "@hooks";
 import type { User } from "@prisma/client";
 import { useState } from "react";
-import { Avatar } from "../Avatar";
 import { DesktopItem } from "./DesktopItem";
 import { SettingsModal } from "./SettingsModal";
 
@@ -23,7 +23,7 @@ export function DesktopSidebar({ currentUser }: DesktopSidebarProps) {
 				onClose={() => setIsOpen(false)}
 			/>
 
-			<div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:w-20 lg:overflow-y-auto lg:bg-white lg:border-r lg:pb-4 lg:flex lg:flex-col justify-between xl:px-6">
+			<div className="hidden lg:fixed inset-y-0 left-0 z-40 w-20 overflow-y-auto bg-black border-r border-slate-800 pb-4 lg:flex flex-col justify-between xl:px-6">
 				<nav className="mt-4 flex flex-col justify-between">
 					<ul className="flex flex-col items-center space-y-1">
 						{routes.map((item) => (
@@ -33,7 +33,6 @@ export function DesktopSidebar({ currentUser }: DesktopSidebarProps) {
 								label={item.label}
 								icon={item.icon}
 								active={item.active}
-								onClick={item.onClick}
 							/>
 						))}
 					</ul>
@@ -42,7 +41,7 @@ export function DesktopSidebar({ currentUser }: DesktopSidebarProps) {
 				<nav className="mt-4 flex flex-col justify-between items-center">
 					<div
 						onClick={() => setIsOpen(true)}
-						className="cursor-pointer hover:opacity-75 transition"
+						className="cursor-pointer hover:opacity-75 transition duration-500"
 					>
 						<Avatar user={currentUser} />
 					</div>

@@ -1,7 +1,6 @@
 "use client";
 
-import { useConversation } from "@/app/hooks/useConversation";
-import { useRoutes } from "@/app/hooks/useRoutes";
+import { useConversation, useRoutes } from "@hooks";
 import { MobileItem } from "./MobileItem";
 
 export function MobileFooter() {
@@ -13,14 +12,13 @@ export function MobileFooter() {
 	}
 
 	return (
-		<div className="fixed justify-between w-full bottom-0 z-40 flex items-center bg-white border-t lg:hidden">
+		<div className="fixed p-3 flex items-center justify-evenly gap-3 w-full bottom-0 z-40 bg-black border-t border-slate-800 lg:hidden">
 			{routes.map((item) => (
 				<MobileItem
 					key={item.href}
 					href={item.href}
 					active={item.active}
 					icon={item.icon}
-					onClick={item.onClick}
 				/>
 			))}
 		</div>

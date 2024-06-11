@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, Input, Modal } from "@/app/components";
-import { Select } from "@/app/components/Inputs";
+import { Button, Input, Modal, Select } from "@components";
 import type { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -57,47 +56,41 @@ export function GroupChatModal({
 	return (
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className="space-y-12">
-					<div className="border-b border-gray-900/10 pb-12">
-						<h2 className="text-base font-semibold leading-7 text-gray-900">
-							Create a group chat
-						</h2>
+				<div className="mb-8">
+					<h2 className="text-base font-bold text-slate-50">
+						Create a group chat
+					</h2>
 
-						<p className="mt-1 text-sm leading-6 text-gray-600">
-							Create a chat with more tha 2 people.
-						</p>
+					<p className="mt-1 text-sm leading-6 text-slate-50/50">
+						Create a chat with more tha 2 people.
+					</p>
 
-						<div className="mt-10 flex flex-col gap-y-8">
-							<Input
-								register={register}
-								label="Name"
-								id="name"
-								disabled={isLoading}
-								errors={errors}
-								required
-							/>
+					<div className="mt-6 lg:mt-10 flex flex-col gap-2 lg:gap-4">
+						<Input
+							register={register}
+							label="Name"
+							id="name"
+							disabled={isLoading}
+							errors={errors}
+							required
+						/>
 
-							<Select
-								disabled={isLoading}
-								label="Members"
-								onChange={(value) =>
-									setValue("members", value, { shouldValidate: true })
-								}
-								value={members}
-								options={users.map((user) => ({
-									value: user.id,
-									label: user.name,
-								}))}
-							/>
-						</div>
+						<Select
+							disabled={isLoading}
+							label="Members"
+							onChange={(value) =>
+								setValue("members", value, { shouldValidate: true })
+							}
+							value={members}
+							options={users.map((user) => ({
+								value: user.id,
+								label: user.name,
+							}))}
+						/>
 					</div>
 				</div>
 
-				<div className="mt-6 flex items-center justify-end gap-x-6">
-					<Button disabled={isLoading} onClick={onClose} secondary>
-						Cancel
-					</Button>
-
+				<div className="flex items-center justify-end">
 					<Button disabled={isLoading} type="submit">
 						Create
 					</Button>

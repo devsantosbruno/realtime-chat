@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/app/actions";
+import { getCurrentUser } from "@actions";
 import { DesktopSidebar } from "./DesktopSidebar";
 import { MobileFooter } from "./MobileFooter";
 

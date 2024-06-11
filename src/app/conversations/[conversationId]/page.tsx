@@ -1,5 +1,5 @@
-import { getConversationById, getMessages } from "@/app/actions";
-import { EmptyState } from "@/app/components";
+import { getConversationById, getMessages } from "@actions";
+import { EmptyState } from "@components";
 import { Body, Form, Header } from "./components";
 
 type IParams = {

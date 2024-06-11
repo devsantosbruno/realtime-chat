@@ -1,8 +1,8 @@
 "use client";
 
-import { Avatar, AvatarGroup } from "@/app/components";
-import { useOtherUser } from "@/app/hooks";
-import type { FullConversationType } from "@/app/types";
+import { Avatar, AvatarGroup } from "@components";
+import { useOtherUser } from "@hooks";
+import type { FullConversationType } from "@types";
 import clsx from "clsx";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
@@ -63,39 +63,40 @@ export function ConversationBox({ data, selected }: ConversationBoxProps) {
 		<div
 			onClick={handleClick}
 			className={clsx(
-				"w-full relative flex items-center space-x-3 hover:bg-neutral-100 rounded-lg cursor-pointer transition duration-500",
-				selected ? "bg-neutral-100" : "bg-white",
+				"w-full overflow-hidden p-3 border hover:border-lime-400 hover:opacity-100 rounded-lg cursor-pointer transition duration-500",
+				!selected && "border-slate-800 lg:opacity-80",
+				selected && "border-lime-400 lg:opacity-100",
 			)}
 		>
-			{data.isGroup ? (
-				<AvatarGroup users={data.users} />
-			) : (
-				<Avatar user={otherUser} />
-			)}
+			<div className="float-start mr-3">
+				{data.isGroup ? (
+					<AvatarGroup users={data.users} />
+				) : (
+					<Avatar user={otherUser} />
+				)}
+			</div>
 
-			<div className="min-2-0 flex-1">
-				<div className="focus:outline-none">
-					<div className="flex justify-between items-center mb-1">
-						<p className="text-md font-medium text-gray-900">
-							{data.name ?? otherUser.name}
-						</p>
-
-						{lastMessage?.createdAt && (
-							<p className="text-xs text-gray-400 font-light">
-								{format(new Date(lastMessage.createdAt), "p")}
-							</p>
-						)}
-					</div>
-
-					<p
-						className={clsx(
-							"truncate, text-sm",
-							hasSeen ? "text-gray-500" : "text-black font-medium",
-						)}
-					>
-						{lastMessageText}
+			<div className="flex-1 focus:outline-none overflow-hidden">
+				<div className="flex justify-between items-center mb-1">
+					<p className="text-md font-medium text-slate-50 truncate">
+						{data.name ?? otherUser.name}
 					</p>
+
+					{lastMessage?.createdAt && (
+						<p className="text-xs text-gray-400 font-light">
+							{format(new Date(lastMessage.createdAt), "p")}
+						</p>
+					)}
 				</div>
+
+				<p
+					className={clsx(
+						"truncate text-sm",
+						hasSeen ? "text-slate-50/50" : "text-slate-100 font-medium",
+					)}
+				>
+					{lastMessageText}
+				</p>
 			</div>
 		</div>
 	);

@@ -1,6 +1,8 @@
 "use client";
 
+import { Button, Input, Modal } from "@components";
 import type { User } from "@prisma/client";
+import { CLOUDINARY_UPLOAD_PRESET } from "@utils";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
 import Image from "next/image";
@@ -8,9 +10,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Button } from "../Button";
-import { Input } from "../Inputs/Input";
-import { Modal } from "../Modal";
 
 type SettingsModalProps = {
 	currentUser: User;
@@ -50,6 +49,11 @@ export function SettingsModal({
 	const onSubmit: SubmitHandler<FieldValues> = (data) => {
 		setIsLoading(true);
 
+		if (data.name === currentUser?.name && data.image === null) {
+			onClose();
+			return setIsLoading(false);
+		}
+
 		axios
 			.post("/api/settings", data)
 			.then(() => {
@@ -64,12 +68,12 @@ export function SettingsModal({
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="space-y-12">
-					<div className="border-b border-gray-900/10 pb-12">
-						<h2 className="text-base font-semibold leading-7 text-gray-900">
+					<div className="border-b border-slate-800 pb-12">
+						<h2 className="text-base font-semibold leading-7 text-slate-50">
 							Profile
 						</h2>
 
-						<p className="mt-1 text-sm leading-6 text-gray-600">
+						<p className="mt-1 text-sm leading-6 text-slate-400">
 							Edit your public information.
 						</p>
 
@@ -84,41 +88,43 @@ export function SettingsModal({
 							/>
 
 							<div>
-								<label className="block text-sm font-medium leading-6 text-gray-900">
+								<label className="block text-sm font-medium leading-6 text-slate-50">
 									Photo
 								</label>
 
 								<div className="mt-2 flex items-center gap-x-3">
-									<Image
-										width={48}
-										height={48}
-										className="rounded-full w-12 h-12"
-										alt="Avatar"
-										src={
-											image || currentUser?.image || "/images/placeholder.png"
-										}
-									/>
+									<CldUploadButton
+										options={{ maxFiles: 1 }}
+										onUpload={handleUpload}
+										uploadPreset={CLOUDINARY_UPLOAD_PRESET}
+										className="rounded-full w-12 h-12 overflow-hidden"
+									>
+										<Image
+											width={48}
+											height={48}
+											className="rounded-full w-12 h-12"
+											alt="Avatar"
+											src={
+												image || currentUser?.image || "/images/placeholder.png"
+											}
+										/>
+									</CldUploadButton>
 
 									<CldUploadButton
 										options={{ maxFiles: 1 }}
 										onUpload={handleUpload}
-										uploadPreset="ztcdw7i2"
+										uploadPreset={CLOUDINARY_UPLOAD_PRESET}
+										className="text-slate-400 hover:text-slate-200 transition duration-500"
 									>
-										<Button disabled={isLoading} secondary>
-											Change
-										</Button>
+										Change
 									</CldUploadButton>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div className="mt-6 flex items-center justify-end gap-x-6">
-						<Button disabled={isLoading} onClick={onClose} secondary>
-							Cancel
-						</Button>
-
-						<Button disabled={isLoading} type="submit" secondary>
+					<div className="mt-6 flex justify-end">
+						<Button disabled={isLoading} type="submit">
 							Save
 						</Button>
 					</div>
